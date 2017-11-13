@@ -35,7 +35,7 @@ public class EasyPermission {
         }
     }
 
-    public static PermissionRequest.Builder with(Activity activity) {
+    public static PermissionRequest.Builder with(@NonNull Activity activity) {
         return new PermissionRequest.Builder(new EasyPermission(activity));
     }
 
@@ -63,15 +63,14 @@ public class EasyPermission {
      *
      * @return true代表有，false 其他
      */
-    public static boolean isGranted(Context context, String permission) {
-       // return false;
+    public static boolean isGranted(@NonNull Context context, @NonNull String permission) {
         return !isMarshmallow() || /*兼容 AppOps*/PermissionChecker.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED;
     }
 
     /**
      * 找到未授权的Permission
      */
-    public static List<String> findDeniedPermissions(Context context, @NonNull String... permissions) {
+    public static List<String> findDeniedPermissions(@NonNull Context context, @NonNull String... permissions) {
         List<String> denyPermissions = new ArrayList<>();
         for (String value : permissions) {
             if (!isGranted(context, value)) {
@@ -84,7 +83,7 @@ public class EasyPermission {
     /**
      * 找到未授权的权限，但是未被完全拒绝
      */
-    public static List<String> findRationalePermissions(Activity activity, @NonNull String... permissions) {
+    public static List<String> findRationalePermissions(@NonNull Activity activity, @NonNull String... permissions) {
         List<String> rationales = new ArrayList<>();
         for (String permission : permissions) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
