@@ -29,7 +29,7 @@ publish {
     userOrg = 'xcheng'//bintray.com用户名
     groupId = 'com.xcheng'//jcenter上的路径
     artifactId = 'easypermission'//项目名称
-    publishVersion = '1.6.4'//版本号
+    publishVersion = '1.0.0'//版本号
     desc = 'android 6.0 permission Library'//描述，不重要
     website = 'https://github.com/xchengDroid/EasyPermission'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }
