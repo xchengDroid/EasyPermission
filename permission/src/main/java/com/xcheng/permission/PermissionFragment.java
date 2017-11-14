@@ -58,7 +58,7 @@ public class PermissionFragment extends Fragment {
             return;
         }
 
-        List<String> showRationalePerms = EasyPermission.findRationalePermissions(getActivity(), EasyPermission.toArray(deniedPerms));
+        List<String> showRationalePerms = EasyPermission.findShowRationalePermissions(getActivity(), EasyPermission.toArray(deniedPerms));
         permissionRequest.onRequestCallback.onRefused(new DeniedResult(deniedPerms, showRationalePerms));
     }
 }

@@ -83,14 +83,14 @@ public class EasyPermission {
     /**
      * 找到未授权的权限，但是未被完全拒绝
      */
-    public static List<String> findRationalePermissions(@NonNull Activity activity, @NonNull String... permissions) {
-        List<String> rationalePerms = new ArrayList<>();
+    public static List<String> findShowRationalePermissions(@NonNull Activity activity, @NonNull String... permissions) {
+        List<String> showRationalePerms = new ArrayList<>();
         for (String permission : permissions) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
-                rationalePerms.add(permission);
+                showRationalePerms.add(permission);
             }
         }
-        return rationalePerms;
+        return showRationalePerms;
     }
 
     public static String[] toArray(@NonNull List<String> permissions) {
