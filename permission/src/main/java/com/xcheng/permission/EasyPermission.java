@@ -45,8 +45,8 @@ public class EasyPermission {
             onRequestCallback.onAllowed();
         } else {
             String[] permissions = permissionRequest.permissions;
-            List<String> deniedPermissions = findDeniedPermissions(mPermissionFragment.getContext(), permissions);
-            if (!deniedPermissions.isEmpty()) {
+            List<String> deniedPerms = findDeniedPermissions(mPermissionFragment.getContext(), permissions);
+            if (!deniedPerms.isEmpty()) {
                 mPermissionFragment.requestPermissions(permissionRequest);
             } else {
                 onRequestCallback.onAllowed();
@@ -71,26 +71,26 @@ public class EasyPermission {
      * 找到未授权的Permission
      */
     public static List<String> findDeniedPermissions(@NonNull Context context, @NonNull String... permissions) {
-        List<String> denyPermissions = new ArrayList<>();
+        List<String> deniedPerms = new ArrayList<>();
         for (String value : permissions) {
             if (!isGranted(context, value)) {
-                denyPermissions.add(value);
+                deniedPerms.add(value);
             }
         }
-        return denyPermissions;
+        return deniedPerms;
     }
 
     /**
      * 找到未授权的权限，但是未被完全拒绝
      */
     public static List<String> findRationalePermissions(@NonNull Activity activity, @NonNull String... permissions) {
-        List<String> rationales = new ArrayList<>();
+        List<String> rationalePerms = new ArrayList<>();
         for (String permission : permissions) {
             if (ActivityCompat.shouldShowRequestPermissionRationale(activity, permission)) {
-                rationales.add(permission);
+                rationalePerms.add(permission);
             }
         }
-        return rationales;
+        return rationalePerms;
     }
 
     public static String[] toArray(@NonNull List<String> permissions) {

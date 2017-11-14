@@ -27,8 +27,8 @@ public class PermissionFragment extends Fragment {
             return;
         }
         mPermissionRequests.put(requestCode, permissionRequest);
-        List<String> denyPermissions = EasyPermission.findDeniedPermissions(getContext(), permissionRequest.permissions);
-        requestPermissions(EasyPermission.toArray(denyPermissions), requestCode);
+        List<String> deniedPerms = EasyPermission.findDeniedPermissions(getContext(), permissionRequest.permissions);
+        requestPermissions(EasyPermission.toArray(deniedPerms), requestCode);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
