@@ -8,7 +8,7 @@
 
 - Gradle
 
-  ​
+  `compile 'com.xcheng:easypermission:1.0.1'`
 
 ## UaseAge
 
