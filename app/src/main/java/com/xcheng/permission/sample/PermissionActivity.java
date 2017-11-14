@@ -20,12 +20,12 @@ public class PermissionActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 EasyPermission.with(PermissionActivity.this)
-                        .permissions(Manifest.permission.CAMERA)
-                        .request(12, new OnRequestCallback() {
+                        .permissions(Manifest.permission.READ_PHONE_STATE)
+                        .request(1228, new OnRequestCallback() {
                             @Override
                             public void onAllowed() {
                                 // request allowed
-                                Toast.makeText(PermissionActivity.this, "CAMERA  被允许", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(PermissionActivity.this, "READ_PHONE_STATE  被允许", Toast.LENGTH_SHORT).show();
                             }
 
                             @Override
@@ -46,7 +46,7 @@ public class PermissionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EasyPermission.with(PermissionActivity.this)
                         .permissions(Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                        .request(12, new OnRequestCallback() {
+                        .request(1220, new OnRequestCallback() {
                             @Override
                             public void onAllowed() {
                                 // request allowed
