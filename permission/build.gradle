@@ -2,8 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "26.0.1"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
     android {
         lintOptions {
             abortOnError false
@@ -11,7 +11,7 @@ android {
     }
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
     }
@@ -24,8 +24,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.android.support:support-v4:25.3.1'
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api 'com.android.support:support-v4:26.1.0'
 }
 //添加
 publish {
@@ -35,5 +35,6 @@ publish {
     artifactId = 'easypermission'//项目名称
     publishVersion = '1.0.1'//版本号
     desc = 'android 6.0 permission Library'//描述，不重要
-    website = 'https://github.com/xchengDroid/EasyPermission'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
+    website = 'https://github.com/xchengDroid/EasyPermission'
+    //网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
 }
